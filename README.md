@@ -62,9 +62,11 @@
 
 > 为controller层提供服务，可以调用其他Service进行业务交互，也可以调用repository层的类方法进行数据操作和获取，参数，业务处理准守web层访问service层，service层访问Repository层的顺序
 
-## 数据访问：
-* 只写接口JpaRespositity
-* 写jpql、hibernateCriteria
+## repository数据访问：
+* 读写分离，repository负责写改删，负责简单的读取查询，dao负责复杂的查询，对外只暴露 repository接口
+* repository接口继承JpaRespositity 和 dao 接口 ，只有dao接口可以进行实现复杂的查询提供具体的方法
+* 简单的写方法使用 repository 提供的接口方法
+* 单表查询写jpql、hibernateCriteria
 * 写SQL
 
 ## 日志处理
