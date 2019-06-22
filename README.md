@@ -16,7 +16,7 @@
 * model 根据数据库表名，按JPA的Entity规范进行定义
 * dao->Model+Dao
 * dao.impl->Model+Dao+Impl
-* repository->Model+Repository此层需要继承JpaRepository接口，不需要
+* repository->Model+Repository此层需要继承JpaRepository接口，不需要具体的实现，jpa层会更加需要动态执行代码
 * controller层的类的命名为：Model+Controller
 * service层那个的类的命名为：Model+Service
 * service.impl层的类的命名为：Model+Service+Impl
@@ -39,10 +39,10 @@
 ## 参数
 
 * 接收前台页面参数，全部放在参数里面。
-1.分页查询时，一般查询参数pageable放在最后
-2.保存和修改的时候，使用实体来接收参数
-3.编辑时、删除时，传递主键
-4.如果需要传递多个（4个以上）参数，应该使用实体或者map来接收参数，应该避免逐一罗列参数。总体参数个数保持5个一下。
+* 分页查询时，一般查询参数pageable放在最后
+* 保存和修改的时候，使用实体来接收参数
+* 编辑时、删除时，传递主键
+* 如果需要传递多个（4个以上）参数，应该使用实体或者map来接收参数，应该避免逐一罗列参数。总体参数个数保持5个一下。
 
 * 特殊情况：
 > 时间参数的传递和处理：如果时间组件可以传Date，用date接受，如果不能使用String接收，然后使用工具类转换。
