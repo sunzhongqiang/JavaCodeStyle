@@ -1,8 +1,49 @@
-# 代码风格
+# 架构风格规范(Java Project base on Spring boot 2.0)
+
+## 前后端分离
+
+前端代码和后端结果要有清晰的边界，后端API提供接口和返回，使用Restful风格提供接口，使用JSON返回数据；
+前后端通讯的格式和协议
+```
+{
+  'tradeItem_query':{
+    description:'对应的查询方法，综合查询',
+    method:'GET',
+    url:'/tradeItem'
+  },
+  'tradeItem_get':{
+    description:'对应的单个对象方法，一般传递主键',
+    method:'GET',
+    url:'/tradeItem/{id}'
+  }, 
+  'tradeItem_save':{
+    description:'对应的数据保存和修改方法，一般对应的业务数据',
+    method:'POST',
+    url:'/tradeItem'
+  },
+  'tradeItem_update':{
+    description:'修改方法，参数在body中一般对应的业务数据',
+    method:'PUT',
+    url:'/tradeItem'
+  },
+  'tradeItem_delete':{
+    description:'对应的数据删除方法，一般传递主键',
+    method:'DELETE',
+    url:'/tradeItem/{id}'
+  }
+}
+```
+## 驼峰命名
+
+* 将所有字母都小写(包括缩写)，然后将单词的第一个字母大写。
+* 每个单词的第一个字母都大写，来得到大驼峰式命名。
+* 除了第一个单词，每个单词的第一个字母都大写，来得到(小)驼峰式命名。
+
 ## 分层和职责以及命名
 
 * web.controller：接受页面传来的参数，调用业务逻辑实现功能，并返回给页面结果数据。
-* web.interceptor,web.filter等存放对应的类实现
+* web.interceptor ：
+* web.filter等存放对应的类实现
 * service：业务逻辑接口层，定义业务逻辑接口，其实现层为：service.impl
 * dao:数据访问层，主要是查询接口和需要性能优化的接口，定义数据访问接口，其实现层为：dao.impl
 * repository 数据接口访问层对外暴露的所有的数据访问接口，对数据保存和修改的接口，同时代替dao层向外暴露接口
