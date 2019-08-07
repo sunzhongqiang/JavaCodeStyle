@@ -1,24 +1,7 @@
 ```
           <dependencies>
           ......
-              <dependency>
-                <groupId>org.codehaus.groovy</groupId>
-                <artifactId>groovy</artifactId>
-              </dependency>
-              <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>2.0.1</version>
-              </dependency>
-              <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-openfeign</artifactId>
-              </dependency>
-              <dependency>
-                <groupId>org.springframework.session</groupId>
-                <artifactId>spring-session-data-redis</artifactId>
-              </dependency>
-              <dependency>
+            <dependency>
                 <groupId>com.mmk</groupId>
                 <artifactId>gene</artifactId>
                 <version>2.1.2.RELEASE</version>
