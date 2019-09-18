@@ -1,7 +1,7 @@
 # 架构风格规范(Java Project base on Spring boot 2.0)
 
 -------
-底层pom依赖：[pom.md] (pom.md)
+底层pom依赖：[pom.md](pom.md)
 -------
 
 ## 前后端分离
