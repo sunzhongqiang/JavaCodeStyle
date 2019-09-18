@@ -1,5 +1,9 @@
 # 架构风格规范(Java Project base on Spring boot 2.0)
 
+-------
+底层pom依赖：[pom.md]
+-------
+
 ## 前后端分离
 
 前端代码和后端结果要有清晰的边界，后端API提供接口和返回，使用Restful风格提供接口，使用JSON返回数据；
