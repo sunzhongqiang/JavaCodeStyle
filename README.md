@@ -183,7 +183,10 @@
  log.error("");
  log.fatal("");
  ```
+ 日志基于logback的日志处理，日志输出到数据库中[logback setting](logback-setting.md)
 
 ## 事务管理
 * 所有的事务在Service中定义，需要事务的时候使用@Transactional进行开始事务
 * 如果需要捕获错误，try-catch记录错后后，继续抛出错误。
+
+### 异常和错误处理规范
