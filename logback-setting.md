@@ -11,6 +11,8 @@
 这个依赖可以让我们使用logback.groovy来进行配置日志配置,logback其他依赖springboot默认已经引入
 
 logback.groovy的配置
+位置：src/main/resources/logback.groovy
+内容：
 
 ```
 import ch.qos.logback.classic.db.DBAppender
