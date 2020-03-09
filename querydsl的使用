@@ -39,3 +39,39 @@
                     
 ```
 ### 然后需要执行一次 maven的插件 generator sources 并看插件中配置的路径中有无生成相应的代码
+
+需要为项目中提供一个BeanFactory 主要的目的是为构造一个JPAQueryFactory，方便项目中使用
+```
+
+@Configuration
+public class BeanFactory {
+
+  @Bean
+  @Autowired
+  public JPAQueryFactory jpaQuery(EntityManager entityManager) {
+    return new JPAQueryFactory(entityManager);
+  }
+
+}
+
+```
+
+项目中使用
+```
+
+// 注入动态查询的实例
+@Resource
+  private JPAQueryFactory jpaQueryFactory;
+
+
+// 在方法中使用
+@Override
+  public List test() {
+    QTradeExpress  qTradeExpress = QTradeExpress.tradeExpress;
+    BooleanExpression expression = qTradeExpress.expressName.like("abc%");
+    long count = jpaQueryFactory.selectFrom(qTradeExpress).where(expression).fetchCount();
+    log.info("count:"+count);
+    return jpaQueryFactory.selectFrom(qTradeExpress).where(expression).fetch();
+  }
+
+```
